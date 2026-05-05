@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Design | Billy Pickles</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <header class="navbar glass">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-logo">
+        <i data-lucide="hexagon" class="logo-icon" size="28"></i>
+        <span class="logo-text">Billy Pickles</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">About</a>
+        <a href="#contact" class="nav-btn gradient-bg micro-animate">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="service-page">
+    <div class="container">
+      <div class="service-page-header">
+        <h1 class="service-page-title">Website <span class="gradient-text">Design</span></h1>
+        <p class="service-page-subtitle">
+          We build performant, immersive, and converting digital experiences. Our web architecture blends aesthetics with sophisticated functionality.
+        </p>
+      </div>
+
+      <div class="content-grid">
+        <a href="https://r-iq.net" target="_blank" rel="noopener noreferrer" class="portfolio-card glass">
+          <img src="../images/Retail_Smart.png" alt="Retail Smart Web Design" class="portfolio-image">
+          <h2 class="portfolio-title">Retail Smart</h2>
+          <p class="portfolio-desc">
+            A comprehensive intelligence dashboard designed for modern wholesale retail transactions. We focused on creating a seamless user experience.
+          </p>
+        </a>
+
+        <a href="https://holowstreet.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card glass">
+          <img src="../images/holowstreet.png" alt="HoloStreet Web Design" class="portfolio-image">
+          <h2 class="portfolio-title">Holow Street</h2>
+          <p class="portfolio-desc">
+            An urban streetwear e-commerce platform. We integrated minimalist aesthetics, dynamic layouts, and a streamlined checkout process.
+          </p>
+        </a>
+
+        <a href="https://dylanjmolnar.github.io/baystaterunner/" target="_blank" rel="noopener noreferrer" class="portfolio-card glass">
+          <img src="../images/baystaterunner.png" alt="Bay State Runner Web Design" class="portfolio-image">
+          <h2 class="portfolio-title">Bay State Runner</h2>
+          <p class="portfolio-desc">
+            A streamlined vehicle registration and license plate processing platform. We implemented a modern dashboard interface.
+          </p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i data-lucide="hexagon" class="logo-icon" size="24"></i>
+          <span class="logo-text">Billy Pickles</span>
+        </div>
+        <p class="footer-desc">
+          Transforming ideas into digital and physical realities.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="3d-printing.html">3D Printing</a>
+        <a href="saas.html">SaaS Solutions</a>
+        <a href="web-design.html">Website Design</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>business@billypickles.com</p>
+        <p>1-800-BILLY-PX</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Billy Pickles. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

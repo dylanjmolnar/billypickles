@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billy Pickles</title>
+  <meta name="description" content="Elevate your business with industry leading 3D printing, cutting-edge SaaS solutions, and modern website design.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <header class="navbar glass">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <i data-lucide="hexagon" class="logo-icon" size="28"></i>
+        <span class="logo-text">Billy Pickles</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">About</a>
+        <a href="#contact" class="nav-btn gradient-bg micro-animate">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="hero-background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+      </div>
+      <div class="container hero-content">
+        <h1 class="hero-title animate-fade-in" style="animation-delay: 0.1s">
+          Where Vision Meets <span class="gradient-text">Reality</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-in" style="animation-delay: 0.2s">
+          Elevate your business with state-of-the-art 3D printing, cutting-edge SaaS solutions, and modern website design.
+        </p>
+        <div class="hero-actions animate-fade-in" style="animation-delay: 0.3s">
+          <a href="#services" class="hero-btn primary micro-animate">Explore Our Services</a>
+          <a href="#contact" class="hero-btn secondary micro-animate glass">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="services-header">
+          <h2 class="section-title">Our <span class="gradient-text">Expertise</span></h2>
+          <p class="section-subtitle">Delivering end-to-end digital and physical solutions for your business.</p>
+        </div>
+        <div class="services-grid">
+          <a href="pages/3d-printing.html" class="service-card micro-animate glass">
+            <div class="service-icon">
+              <i data-lucide="layers"></i>
+            </div>
+            <h3 class="service-title">3D Printing</h3>
+            <p class="service-desc">High-precision 3D printing services for rapid prototyping and bespoke manufacturing.</p>
+          </a>
+
+          <a href="pages/saas.html" class="service-card micro-animate glass">
+            <div class="service-icon">
+              <i data-lucide="cloud"></i>
+            </div>
+            <h3 class="service-title">SaaS Solutions</h3>
+            <p class="service-desc">Scalable cloud software tailored to streamline your operations and drive growth.</p>
+          </a>
+
+          <a href="pages/web-design.html" class="service-card micro-animate glass">
+            <div class="service-icon">
+              <i data-lucide="code"></i>
+            </div>
+            <h3 class="service-title">Website Design</h3>
+            <p class="service-desc">Modern, performant, and beautifully crafted websites that convert visitors into customers.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i data-lucide="hexagon" class="logo-icon" size="24"></i>
+          <span class="logo-text">Billy Pickles</span>
+        </div>
+        <p class="footer-desc">
+          Transforming ideas into digital and physical realities.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="pages/3d-printing.html">3D Printing</a>
+        <a href="pages/saas.html">SaaS Solutions</a>
+        <a href="pages/web-design.html">Website Design</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>business@billypickles.com</p>
+        <p>1-800-BILLY-PX</p>
+        <div class="social-links">
+           <a href="#" aria-label="Twitter" class="micro-animate"><i data-lucide="twitter"></i></a>
+           <a href="#" aria-label="LinkedIn" class="micro-animate"><i data-lucide="linkedin"></i></a>
+           <a href="#" aria-label="GitHub" class="micro-animate"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Billy Pickles. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

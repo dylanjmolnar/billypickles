@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Printing | Billy Pickles</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.js"></script>
+  <!-- Load Three.js from CDN -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <header class="navbar glass">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-logo">
+        <i data-lucide="hexagon" class="logo-icon" size="28"></i>
+        <span class="logo-text">Billy Pickles</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">About</a>
+        <a href="#contact" class="nav-btn gradient-bg micro-animate">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="service-page">
+    <div class="container">
+      <div class="service-page-header">
+        <h1 class="service-page-title">3D <span class="gradient-text">Printing</span></h1>
+        <p class="service-page-subtitle">
+          Interact with some of our recent custom-designed models. We leverage cutting-edge technology to bring your digital concepts into physical reality with incredible precision.
+        </p>
+      </div>
+
+      <div class="viewer-showcase">
+        <div class="viewer-sidebar glass">
+          <h3 class="sidebar-title">Model Gallery</h3>
+          <div class="model-list" id="model-list">
+            <!-- Models will be populated by JS -->
+          </div>
+        </div>
+        <div class="viewer-canvas-container glass" id="viewer-container">
+          <!-- Three.js canvas will be injected here -->
+          <div id="loading-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.5); z-index: 10;">
+            <p>Loading Model...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i data-lucide="hexagon" class="logo-icon" size="24"></i>
+          <span class="logo-text">Billy Pickles</span>
+        </div>
+        <p class="footer-desc">
+          Transforming ideas into digital and physical realities.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="3d-printing.html">3D Printing</a>
+        <a href="saas.html">SaaS Solutions</a>
+        <a href="web-design.html">Website Design</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>business@billypickles.com</p>
+        <p>1-800-BILLY-PX</p>
+        <div class="social-links">
+           <a href="#" aria-label="Twitter" class="micro-animate"><i data-lucide="twitter"></i></a>
+           <a href="#" aria-label="LinkedIn" class="micro-animate"><i data-lucide="linkedin"></i></a>
+           <a href="#" aria-label="GitHub" class="micro-animate"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Billy Pickles. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script type="module" src="../js/stl-viewer.js"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

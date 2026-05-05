@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS Solutions | Billy Pickles</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <header class="navbar glass">
+    <div class="container nav-container">
+      <a href="../index.html" class="nav-logo">
+        <i data-lucide="hexagon" class="logo-icon" size="28"></i>
+        <span class="logo-text">Billy Pickles</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">About</a>
+        <a href="#contact" class="nav-btn gradient-bg micro-animate">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="service-page">
+    <div class="container">
+      <div class="service-page-header">
+        <h1 class="service-page-title">SaaS <span class="gradient-text">Solutions</span></h1>
+        <p class="service-page-subtitle">
+          Next-generation cloud infrastructure and applications to scale your business operations seamlessly.
+        </p>
+      </div>
+
+      <div class="coming-soon-container glass">
+        <i data-lucide="rocket" class="coming-soon-icon" style="width: 80px; height: 80px;"></i>
+        <h2 class="portfolio-title" style="font-size: 3rem; margin-bottom: 1rem;">Coming Soon</h2>
+        <p class="portfolio-desc" style="font-size: 1.2rem; max-width: 600px;">
+          We are currently building something extraordinary. Stay tuned.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i data-lucide="hexagon" class="logo-icon" size="24"></i>
+          <span class="logo-text">Billy Pickles</span>
+        </div>
+        <p class="footer-desc">
+          Transforming ideas into digital and physical realities.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="3d-printing.html">3D Printing</a>
+        <a href="saas.html">SaaS Solutions</a>
+        <a href="web-design.html">Website Design</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>business@billypickles.com</p>
+        <p>1-800-BILLY-PX</p>
+        <div class="social-links">
+           <a href="#" aria-label="Twitter" class="micro-animate"><i data-lucide="twitter"></i></a>
+           <a href="#" aria-label="LinkedIn" class="micro-animate"><i data-lucide="linkedin"></i></a>
+           <a href="#" aria-label="GitHub" class="micro-animate"><i data-lucide="github"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Billy Pickles. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
