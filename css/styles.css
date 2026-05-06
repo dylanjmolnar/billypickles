@@ -541,6 +541,32 @@ button {
   position: relative;
   overflow: hidden;
   display: flex;
+  touch-action: none;
+}
+
+.download-container {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.download-btn i {
+  width: 18px;
+  height: 18px;
 }
 
 /* Footer */

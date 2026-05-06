@@ -14,21 +14,34 @@ let scene, camera, renderer, controls, mesh;
 const container = document.getElementById('viewer-container');
 const loadingOverlay = document.getElementById('loading-overlay');
 const modelList = document.getElementById('model-list');
+const downloadContainer = document.getElementById('download-container');
+
+let currentModel = null;
 
 function init() {
   // Scene setup
   scene = new THREE.Scene();
   scene.background = null; // Transparent background
 
+  // Initial dimensions check with fallbacks for mobile timing
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || 400;
+
   // Camera setup
-  camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
   camera.position.set(0, 0, 150);
 
   // Renderer setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setSize(width, height);
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.shadowMap.enabled = true;
+  
+  // Mobile fix: ensure the canvas doesn't capture scroll events and fills container
+  renderer.domElement.style.touchAction = 'none';
+  renderer.domElement.style.width = '100%';
+  renderer.domElement.style.height = '100%';
+  
   container.appendChild(renderer.domElement);
 
   // Controls setup
@@ -53,12 +66,23 @@ function init() {
 
   // Handle resize
   window.addEventListener('resize', onWindowResize);
+  
+  // Robust resize handling for mobile layout settlement
+  if (window.ResizeObserver) {
+    const resizeObserver = new ResizeObserver(() => {
+      onWindowResize();
+    });
+    resizeObserver.observe(container);
+  }
+  
+  // Force a resize check after a short delay for mobile layout settlement
+  setTimeout(onWindowResize, 200);
 
   // Populate model list
   populateModelList();
 
   // Load initial model
-  loadModel(models[0].file);
+  loadModel(models[0]);
 
   animate();
 }
@@ -71,13 +95,33 @@ function populateModelList() {
     btn.onclick = () => {
       document.querySelectorAll('.model-button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      loadModel(model.file);
+      loadModel(model);
     };
     modelList.appendChild(btn);
   });
 }
 
-function loadModel(fileName) {
+function updateDownloadButton() {
+  if (!downloadContainer || !currentModel) return;
+  
+  downloadContainer.innerHTML = '';
+  const downloadBtn = document.createElement('a');
+  downloadBtn.href = `../models/${currentModel.file}`;
+  downloadBtn.download = currentModel.file;
+  downloadBtn.className = 'download-btn micro-animate gradient-bg';
+  downloadBtn.innerHTML = `<i data-lucide="download" size="18"></i> Download STL`;
+  
+  downloadContainer.appendChild(downloadBtn);
+  
+  // Re-run lucide icons
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
+}
+
+function loadModel(model) {
+  currentModel = model;
+  const fileName = model.file;
   loadingOverlay.style.display = 'flex';
   
   if (mesh) {
@@ -122,6 +166,7 @@ function loadModel(fileName) {
 
     scene.add(mesh);
     loadingOverlay.style.display = 'none';
+    updateDownloadButton();
   }, undefined, (error) => {
     console.error(error);
     loadingOverlay.innerHTML = '<p>Error loading model</p>';
@@ -129,9 +174,27 @@ function loadModel(fileName) {
 }
 
 function onWindowResize() {
-  camera.aspect = container.clientWidth / container.clientHeight;
+  if (!container || !camera || !renderer) return;
+  
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  
+  if (width === 0 || height === 0) {
+    // Fallback if container is not yet rendered or has 0 size
+    const fallbackWidth = window.innerWidth > 768 ? width : window.innerWidth - 40;
+    const fallbackHeight = window.innerWidth > 768 ? height : 400;
+    
+    if (fallbackWidth > 0 && fallbackHeight > 0) {
+      camera.aspect = fallbackWidth / fallbackHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(fallbackWidth, fallbackHeight);
+    }
+    return;
+  }
+  
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setSize(width, height);
 }
 
 function animate() {
